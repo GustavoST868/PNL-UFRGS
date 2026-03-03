@@ -1,5 +1,7 @@
 // function to return the documents in a list, separating the words
 function SplitWords(docs){
+  
+    //vector with separate words
     let word_docs = [];
     
     //remove punctuations and stores only words in vector in the word list
@@ -27,10 +29,9 @@ function makeMatriz(splitWords){
     }
   }
   
-
   let numberOfDifferentWords = differentWords.length;
   
-  let string = `Documents count: ${splitWords.length} \nDifferent Words: ${numberOfDifferentWords}\n\nMatrix with ${numberOfDifferentWords} rows and ${splitWords.length} columns:`;
+  let string = `Documents count: ${splitWords.length} \nDifferent Words: ${numberOfDifferentWords}\n\nMatrix with ${numberOfDifferentWords} rows and ${splitWords.length} columns:\n`;
   
   console.log(string);
   
@@ -38,16 +39,15 @@ function makeMatriz(splitWords){
   
   //show matrix
   for(let i = 0; i< numberOfDifferentWords; i++){
-    let line = `|${matrix[i]}|`;
+    let line = `| ${matrix[i].join("  ")} |`;
     console.log(line);
   }
   
-  
-  
 }
 
-let docs = ["Ola","tudo"];
+let docs = ["Ola","tudo", " teste teste teste"];
 
+//test to spplit words of the docs
 let vectorDocsWords = SplitWords(docs);
 
 makeMatriz(vectorDocsWords);
