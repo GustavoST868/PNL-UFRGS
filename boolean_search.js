@@ -30,19 +30,24 @@ function makeMatriz(splitWords){
 
   let numberOfDifferentWords = differentWords.length;
   
-  console.log(numberOfDifferentWords);
-  console.log(splitWords.length);
+  let string = `Documents count: ${splitWords.length} \nDifferent Words: ${numberOfDifferentWords}\n\nMatrix with ${numberOfDifferentWords} rows and ${splitWords.length} columns:`;
+  
+  console.log(string);
   
   let matrix = Array.from({length: numberOfDifferentWords}, () => Array(splitWords.length).fill(0));
   
-  console.log(matrix);
+  //show matrix
+  for(let i = 0; i< numberOfDifferentWords; i++){
+    let line = `|${matrix[i]}|`;
+    console.log(line);
+  }
   
   
   
 }
 
-let docs = ["Ola tudo bem!","tudo","Boa tarde","Hoje eu tenho aula de Ontologia"];
+let docs = ["Ola","tudo"];
 
-let test = SplitWords(docs);
+let vectorDocsWords = SplitWords(docs);
 
-makeMatriz(test);
+makeMatriz(vectorDocsWords);
