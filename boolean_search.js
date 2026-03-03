@@ -1,17 +1,48 @@
+// function to return the documents in a list, separating the words
 function SplitWords(docs){
     let word_docs = [];
-
+    
+    //remove punctuations and stores only words in vector in the word list
     for( let i= 0; i<docs.length; i++ ){
-        
-     let sentence_clean = docs[i].replace(/[.,!?]/g,"");
+      let sentence_clean = docs[i].replace(/[.,!?]/g,"");
       word_docs.push(sentence_clean.split(" "));
-        
     }
     
-    console.log(word_docs);
+    return word_docs;
 }
 
-let docs = ["Ola tudo bem!","tudo"];
 
-SplitWords(docs);
+//build the matrix for boolean comparizon
+function makeMatriz(splitWords){
+  
+  //different words
+  let differentWords = [];
+  
+  //add the words to the unique words list
+  for (let i = 0; i< splitWords.length;i++){
+    for(let j = 0; j< splitWords[i].length;j++){
+      if(!differentWords.includes(splitWords[i][j])){
+        differentWords.push(splitWords[i][j]);
+      }
+    }
+  }
+  
 
+  let numberOfDifferentWords = differentWords.length;
+  
+  console.log(numberOfDifferentWords);
+  console.log(splitWords.length);
+  
+  let matrix = Array.from({length: numberOfDifferentWords}, () => Array(splitWords.length).fill(0));
+  
+  console.log(matrix);
+  
+  
+  
+}
+
+let docs = ["Ola tudo bem!","tudo","Boa tarde","Hoje eu tenho aula de Ontologia"];
+
+let test = SplitWords(docs);
+
+makeMatriz(test);
